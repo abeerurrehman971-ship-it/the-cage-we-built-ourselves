@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cage We Built Ourselves — Abeer Ur Rehman</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+  :root {
+    --navy: #1B2430;
+    --navy-light: #2A3545;
+    --cream: #F7F4EC;
+    --cream-deep: #EFEAE0;
+    --amber: #B5651D;
+    --amber-light: #D88A3F;
+    --text-soft: #555555;
+    --text-softer: #777777;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Lora', Georgia, serif;
+    background: var(--cream);
+    color: var(--navy);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  .wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- Top bar ---------- */
+  .topbar {
+    padding: 28px 0;
+  }
+  .topbar .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .brand {
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 14px;
+    color: var(--navy);
+    text-transform: uppercase;
+  }
+  .brand span { color: var(--amber); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 40px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero .wrap {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .eyebrow {
+    color: var(--amber);
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    display: block;
+  }
+  .hero h1 {
+    font-size: 50px;
+    line-height: 1.12;
+    font-weight: 700;
+    margin-bottom: 22px;
+    letter-spacing: -0.5px;
+  }
+  .hero .sub {
+    font-style: italic;
+    font-size: 21px;
+    color: var(--text-soft);
+    margin-bottom: 34px;
+    max-width: 480px;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 17px 34px;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 3px;
+    display: inline-block;
+    transition: background 0.2s ease, transform 0.2s ease;
+    border: 1px solid var(--navy);
+  }
+  .btn-primary:hover {
+    background: var(--amber);
+    border-color: var(--amber);
+    transform: translateY(-1px);
+  }
+  .price-tag {
+    font-size: 15px;
+    color: var(--text-softer);
+  }
+  .price-tag strong {
+    color: var(--navy);
+    font-size: 20px;
+  }
+
+  .cover-frame {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  .cover-frame img {
+    width: 100%;
+    max-width: 360px;
+    box-shadow: 0 30px 60px -20px rgba(27, 36, 48, 0.35);
+    border-radius: 2px;
+  }
+
+  /* ---------- Bar motif divider ---------- */
+  .bar-divider {
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    opacity: 0.5;
+  }
+  .bar-divider .bar {
+    width: 2px;
+    background: var(--navy);
+    opacity: 0.25;
+  }
+
+  /* ---------- Section shared ---------- */
+  section {
+    padding: 90px 0;
+  }
+  .section-title {
+    font-size: 34px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 16px;
+    letter-spacing: -0.3px;
+  }
+  .section-sub {
+    text-align: center;
+    color: var(--text-soft);
+    font-style: italic;
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto 60px;
+  }
+
+  /* ---------- The problem ---------- */
+  .problem {
+    background: var(--navy);
+    color: var(--cream);
+  }
+  .problem .section-title { color: var(--cream); }
+  .problem .section-sub { color: #C9CDD4; }
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 50px;
+  }
+  .problem-card {
+    border-left: 2px solid var(--amber);
+    padding-left: 22px;
+  }
+  .problem-card .num {
+    color: var(--amber);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .problem-card p {
+    font-size: 16px;
+    color: #D8DBE0;
+  }
+
+  /* ---------- Chapters ---------- */
+  .chapters-list {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .chapter-row {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 22px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--cream-deep);
+  }
+  .chapter-row:first-child { border-top: 1px solid var(--cream-deep); }
+  .chapter-row .ch-num {
+    font-weight: 700;
+    color: var(--amber);
+    font-size: 22px;
+    font-style: italic;
+  }
+  .chapter-row .ch-title {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  .chapter-row .ch-slogan {
+    font-style: italic;
+    color: var(--text-soft);
+    font-size: 15px;
+  }
+
+  /* ---------- Author ---------- */
+  .author {
+    background: var(--cream-deep);
+  }
+  .author .wrap {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 40px;
+    align-items: center;
+    max-width: 760px;
+  }
+  .author-photo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cream);
+    font-weight: 700;
+    font-size: 36px;
+    letter-spacing: 1px;
+    border: 3px solid var(--amber);
+    flex-shrink: 0;
+  }
+  .author-name {
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+  .author-bio {
+    color: var(--text-soft);
+    font-size: 16px;
+  }
+
+  /* ---------- Final CTA ---------- */
+  .final-cta {
+    text-align: center;
+  }
+  .final-cta h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .final-cta .sub {
+    font-style: italic;
+    color: var(--text-soft);
+    font-size: 18px;
+    margin-bottom: 38px;
+  }
+  .guarantee {
+    margin-top: 28px;
+    font-size: 14px;
+    color: var(--text-softer);
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: 40px 0;
+    text-align: center;
+    color: var(--text-softer);
+    font-size: 13px;
+    letter-spacing: 1px;
+    border-top: 1px solid var(--cream-deep);
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px) {
+    .hero .wrap { grid-template-columns: 1fr; gap: 40px; }
+    .hero h1 { font-size: 38px; }
+    .cover-frame { order: -1; }
+    .problem-grid { grid-template-columns: 1fr; gap: 30px; }
+    .author .wrap { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+    .section-title { font-size: 28px; }
+    .final-cta h2 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand">ABEER UR REHMAN <span>·</span> AUTHOR</div>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Ten Universal Patterns</span>
+        <h1>The Cage We Built Ourselves</h1>
+        <p class="sub">Ten true stories — a rogue trader, a billionaire who couldn't speak in public, a dying scientist testing his own theory — that reveal the psychology running underneath your biggest decisions.</p>
+        <div class="hero-cta">
+          <a href="#buy" class="btn-primary">Get the book — $9</a>
+          <span class="price-tag">Instant PDF delivery</span>
+        </div>
+      </div>
+      <div class="cover-frame">
+        <img src="book-cover.png" alt="The Cage We Built Ourselves — book cover">
+      </div>
+    </div>
+  </section>
+
+  <div class="bar-divider">
+    <div class="bar" style="height:100%"></div>
+    <div class="bar" style="height:70%"></div>
+    <div class="bar" style="height:100%"></div>
+    <div class="bar" style="height:55%"></div>
+    <div class="bar" style="height:100%"></div>
+    <div class="bar" style="height:70%"></div>
+    <div class="bar" style="height:100%"></div>
+  </div>
+
+  <section class="problem">
+    <div class="wrap">
+      <h2 class="section-title">You are running software you didn't choose</h2>
+      <p class="section-sub">Built two hundred thousand years ago for a world of predators and scarcity — still making your decisions today.</p>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <span class="num">THE PATTERN</span>
+          <p>You stay in the job, the relationship, the position — long after you know it's wrong — because letting go feels like losing yourself, not just the thing.</p>
+        </div>
+        <div class="problem-card">
+          <span class="num">THE PROOF</span>
+          <p>A trader hides a small loss and destroys a 233-year-old bank. A billionaire can't say his own name in a room. Ten real, documented stories — not theory.</p>
+        </div>
+        <div class="problem-card">
+          <span class="num">THE SHIFT</span>
+          <p>Not a fix. A light switched on in a room you've been standing in, in the dark, your entire life — so the pattern runs you a little less than it used to.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="section-title">What's inside</h2>
+      <p class="section-sub">Ten chapters. Ten true stories. Ten questions you'll start asking yourself.</p>
+      <div class="chapters-list">
+        <div class="chapter-row">
+          <div class="ch-num">01</div>
+          <div><div class="ch-title">The Vanishing Point</div><div class="ch-slogan">We don't fear losing things. We fear losing ourselves.</div></div>
+        </div>
+        <div class="chapter-row">
+          <div class="ch-num">02</div>
+          <div><div class="ch-title">The Ghost in the Mirror</div><div class="ch-slogan">You were never competing against them. You were competing against a ghost.</div></div>
+        </div>
+        <div class="chapter-row">
+          <div class="ch-num">03</div>
+          <div><div class="ch-title">Tomorrow's Better Self</div><div class="ch-slogan">Tomorrow is the only place we ever feel brave.</div></div>
+        </div>
+        <div class="chapter-row">
+          <div class="ch-num">04</div>
+          <div><div class="ch-title">The Empty Theater</div><div class="ch-slogan">You rehearse for an audience that already went home.</div></div>
+        </div>
+        <div class="chapter-row">
+          <div class="ch-num">05</div>
+          <div><div class="ch-title">The Pigeon's Dance</div><div class="ch-slogan">We'd rather be wrong with confidence than right with doubt.</div></div>
+        </div>
+        <div class="chapter-row">
+          <div class="ch-num">06</div>
+          <div><div class="ch-title">The Story We Owe Ourselves</div><div class="ch-slogan">We don't change our minds. We change the story.</div></div>
+        </div>
+        <div class="chapter-row">
+          <div class="ch-num">07</div>
+          <div><div class="ch-title">What the Wire Mother Couldn't Give</div><div class="ch-slogan">You're not afraid of being left. You're afraid of being left again.</div></div>
+        </div>
+        <div class="chapter-row">
+          <div class="ch-num">08</div>
+          <div><div class="ch-title">The Memo Nobody Could Afford to Read</div><div class="ch-slogan">Every argument is two people defending different versions of themselves.</div></div>
+        </div>
+        <div class="chapter-row">
+          <div class="ch-num">09</div>
+          <div><div class="ch-title">The Finish Line That Runs</div><div class="ch-slogan">The finish line keeps the race alive by moving.</div></div>
+        </div>
+        <div class="chapter-row">
+          <div class="ch-num">10</div>
+          <div><div class="ch-title">The Hospital Room in Vancouver</div><div class="ch-slogan">We don't build legacies because we believe in tomorrow. We build them because we don't.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="author">
+    <div class="wrap">
+      <div class="author-photo">AUR</div>
+      <div>
+        <div class="author-name">Abeer Ur Rehman</div>
+        <p class="author-bio">I write about the psychology nobody outgrows — the patterns running underneath your decisions, your relationships, and your fears, explained through real, documented stories. <em>The Cage We Built Ourselves</em> is my first book.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta" id="buy">
+    <div class="wrap">
+      <h2>Read the first chapter free. Then decide.</h2>
+      <p class="sub">48 pages. Ten stories. One copy, delivered to your inbox in minutes.</p>
+      <a href="PAYMENT_LINK_GOES_HERE" class="btn-primary" target="_blank" rel="noopener">Buy now — $9</a>
+      <div class="guarantee">Instant digital delivery · PDF format · No account required</div>
+    </div>
+  </section>
+
+  <footer>
+    THE CAGE WE BUILT OURSELVES &nbsp;·&nbsp; ABEER UR REHMAN &nbsp;·&nbsp; 2026
+  </footer>
+
+</body>
+</html>
